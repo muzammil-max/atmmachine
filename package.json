@@ -1,6 +1,6 @@
 {
   "name": "muzammil2058-atm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI based ATM machine",
   "main": "index.js",
   "type": "module",
