@@ -1,0 +1,24 @@
+{
+  "name": "muzammil2058-atm",
+  "version": "1.0.0",
+  "description": "A CLI based ATM machine",
+  "main": "index.js",
+  "type": "module",
+  "bin" : "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Muzammil",
+  "license": "MIT",
+  "dependencies": {
+    "chalk-animation": "^2.0.3",
+    "chalk-rainbow": "^1.0.0",
+    "figlet": "^1.7.0",
+    "inquirer": "^9.2.17"
+  },
+  "devDependencies": {
+    "@types/chalk-animation": "^1.6.3",
+    "@types/figlet": "^1.5.8",
+    "@types/inquirer": "^9.0.7"
+  }
+}
