@@ -396,7 +396,6 @@ while (flag2) {
       console.log(
         chalk.cyanBright("Please visit our branch to get your card unblocked.")
       );
-      console.clear();
     }, 4000);
 
     flag2 = false;
