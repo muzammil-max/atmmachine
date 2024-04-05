@@ -54,7 +54,7 @@ while (flag2) {
         {
           name: "myFunction",
           type: "list",
-          message: "What you want to do ?",
+          message: "What do you want to do ?",
           choices: [
             chalk.green("Deposit"),
             chalk.yellow("Withdraw"),
