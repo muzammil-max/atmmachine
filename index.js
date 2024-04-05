@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import chalkAnimation from "chalk-animation";
 import inquirer from "inquirer";
 import chalk from "chalk";
@@ -9,7 +10,7 @@ const msg = "THANKS FOR USING OUR ATM MACHINE";
 const warn = "YOUR CARD HAS BEEN BLOCKED";
 chalkAnimation.rainbow(banner);
 setTimeout(() => {
-    console.log("Enter your user ID");
+    console.log("Enter your username and your security PIN.");
 }, 6000);
 const userID = "muzammil";
 const userPass = "1234";

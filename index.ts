@@ -363,6 +363,7 @@ while (flag2) {
             );
 
             console.log(chalk.whiteBright("Reason: Insufficient Balance!"));
+            console.log("")
           }
         } else {
           console.log(chalk.redBright("Please a valid transfer amount!"));
