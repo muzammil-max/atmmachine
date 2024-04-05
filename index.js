@@ -37,7 +37,7 @@ while (flag2) {
                 {
                     name: "myFunction",
                     type: "list",
-                    message: "What you want to do ?",
+                    message: "What do you want to do ?",
                     choices: [
                         chalk.green("Deposit"),
                         chalk.yellow("Withdraw"),
@@ -233,6 +233,7 @@ while (flag2) {
                         console.log(chalk.redBright("", "", "", "", "", "", "", "", "", "TRANSACTION FAILED!"));
                         console.log(chalk.redBright("-------------------------------------"));
                         console.log(chalk.whiteBright("Reason: Insufficient Balance!"));
+                        console.log("");
                     }
                 }
                 else {
@@ -251,10 +252,9 @@ while (flag2) {
     }
     if (count == 3) {
         console.log("");
-        chalkAnimation.glitch(warn);
+        chalkAnimation.pulse(warn);
         setTimeout(() => {
             console.log(chalk.cyanBright("Please visit our branch to get your card unblocked."));
-            console.clear();
         }, 4000);
         flag2 = false;
     }

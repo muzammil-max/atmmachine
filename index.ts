@@ -391,7 +391,7 @@ while (flag2) {
 
   if (count == 3) {
     console.log("");
-    chalkAnimation.glitch(warn);
+    chalkAnimation.pulse(warn);
     setTimeout(() => {
       console.log(
         chalk.cyanBright("Please visit our branch to get your card unblocked.")
