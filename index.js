@@ -331,7 +331,7 @@ while (flag2) {
                                 console.log(chalk.yellow(`|                                                                               |`));
                                 console.log(chalk.yellow("| > Consumer Name: Muzammil                                                     |"));
                                 console.log(chalk.yellow("| > Consumer Number: 57382-42985-4395-91-4                                      |"));
-                                console.log(chalk.yellow(`| > Amount to be paid: ${bill1}                                                   |`));
+                                console.log(chalk.yellow(`| > Amount to be paid: ${bill1}                                                  `));
                                 console.log(chalk.yellow(`| > Your Bill is PAID                                                           |`));
                                 console.log(chalk.yellow("| > Reading Taken on: 31/12/2024                                                |"));
                                 console.log(chalk.yellow("|                                                                               |"));
@@ -349,7 +349,7 @@ while (flag2) {
                                 console.log(chalk.yellow(`|                                                                               |`));
                                 console.log(chalk.yellow("| > Consumer Name: Muzammil                                                     |"));
                                 console.log(chalk.yellow("| > Consumer Number: 57382-42985-4395-91-4                                      |"));
-                                console.log(chalk.yellow(`| > Amount to be paid: ${bill1}                                                   |`));
+                                console.log(chalk.yellow(`| > Amount to be paid: ${bill1}                                                  `));
                                 console.log(chalk.yellow(`| > Your Bill is not PAID                                                       |`));
                                 console.log(chalk.yellow("| > Reading Taken on: 31/12/2024                                                |"));
                                 console.log(chalk.yellow("|                                                                               |"));
@@ -404,7 +404,7 @@ while (flag2) {
                                 console.log(chalk.yellow("| > Consumer Number: 57382-42985-4395-91-4                                      |"));
                                 console.log(chalk.yellow(`| > Your Bill is PAID                                                           |`));
                                 console.log(chalk.yellow("| > Reading Taken on: 21/3/2002                                                 |"));
-                                console.log(chalk.yellow(`| > Amount to be paid within due date: ${billcost1}                                       |`));
+                                console.log(chalk.yellow(`| > Amount to be paid within due date: ${billcost1}                               `));
                                 console.log(chalk.yellow("|                                                                               |"));
                                 console.log(chalk.yellow("|  DUE DATE: 4 / 4 / 2002                                                       |"));
                                 console.log(chalk.yellow("|                                                                               |"));
@@ -421,7 +421,7 @@ while (flag2) {
                                 console.log(chalk.yellow("| > Consumer Number: 51984-75432-86187-9421-1454                                |"));
                                 console.log(chalk.yellow(`| > Your Bill is not PAID                                                       |`));
                                 console.log(chalk.yellow("| > Reading Taken on: 21/3/2002                                                 |"));
-                                console.log(chalk.yellow(`| > Amount to be paid within due date: ${billcost1}                                        |`));
+                                console.log(chalk.yellow(`| > Amount to be paid within due date: ${billcost1}                              `));
                                 console.log(chalk.yellow("|                                                                               |"));
                                 console.log(chalk.yellow("|  DUE DATE: 4 / 4 / 2002                                                       |"));
                                 console.log(chalk.yellow("|                                                                               |"));
