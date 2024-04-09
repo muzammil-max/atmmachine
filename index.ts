@@ -3,6 +3,7 @@
 import chalkAnimation from "chalk-animation";
 import inquirer from "inquirer";
 import chalk from "chalk";
+import dateTime from "date-time";
 
 let flag = true;
 let flag2 = true;
@@ -19,6 +20,14 @@ const userID = "muzammil";
 const userPass = "1234";
 //Balance
 let myBalance: number = 50000;
+let isPaid1: boolean = false;
+let isPaid2: boolean = false;
+let isPaid3: boolean = false;
+let isPaid4: boolean = false;
+//creating function for a random bill
+function randomnumber(max: number) {
+  return Math.floor(Math.random() * max);
+}
 
 //Main loop
 while (flag2) {
@@ -61,7 +70,7 @@ while (flag2) {
             chalk.blue("FastCash"),
             chalk.magentaBright("CheckBalance"),
             chalk.blueBright("Transfer"),
-            chalk.cyanBright("Bill payment (coming soon)"),
+            chalk.cyanBright("Bill payment"),
             chalk.bgRed("Quit"),
           ],
         },
@@ -70,7 +79,7 @@ while (flag2) {
       //Quit
       if (selectedFunction.myFunction === chalk.bgRed("Quit")) {
         console.log("");
-        chalkAnimation.glitch(msg);
+        chalkAnimation.neon(msg);
         setTimeout(() => {
           console.log("");
           console.clear();
@@ -177,11 +186,13 @@ while (flag2) {
               console.log(
                 chalk.magenta(`Your remaining balance is: ${myBalance}`)
               );
+              console.log("");
             } else {
               console.log("");
               console.log(
                 chalk.redBright("Withdraw failed due to insufficient balance !")
               );
+              console.log("");
             }
           } else if (Fastcash.myFast == "3000") {
             if (myBalance >= 3000) {
@@ -277,13 +288,17 @@ while (flag2) {
         console.log(
           chalk.yellowBright(``, ``, ``, `Account created: 10/3/2004`)
         );
+
         console.log(
-          chalk.yellowBright(
-            "-------------------------------------------------"
+          chalk.bold(
+            chalk.yellow(``, ``, ``, `Your curent balance is : ${myBalance}`)
           )
         );
-        console.log("");
-        console.log(chalk.bgBlue(`Your current balance is: ${myBalance}`));
+        console.log(
+          chalk.yellowBright(
+            "-------------------------------------------------------"
+          )
+        );
         console.log("");
       }
 
@@ -324,8 +339,10 @@ while (flag2) {
             console.log(
               "-------------------------------------------------------------"
             );
-            console.log(chalk.blueBright(`Sender's name: ${userID}`));
-            console.log(chalk.blueBright(`Receiver's name: ${transfer.name}`));
+            console.log(chalk.blueBright(`Amount Sent by : ${userID}`));
+            console.log(
+              chalk.blueBright(`Amount received by : ${transfer.name}`)
+            );
             console.log(
               "-------------------------------------------------------------"
             );
@@ -333,11 +350,11 @@ while (flag2) {
             console.log("");
 
             console.log(
-              chalk.bold(chalk.green(`Amount transfered: ${transfer.money}`))
+              chalk.bold(chalk.green(`Amount transferred: ${transfer.money}`))
             );
 
             console.log(
-              chalk.blueBright(`Your remaaining balance is: ${myBalance}`)
+              chalk.blueBright(`Your remaining balance is: ${myBalance}`)
             );
             console.log("");
           } else {
@@ -363,49 +380,566 @@ while (flag2) {
             );
 
             console.log(chalk.whiteBright("Reason: Insufficient Balance!"));
-            console.log("")
+            console.log("");
           }
         } else {
           console.log(chalk.redBright("Please a valid transfer amount!"));
+          console.log("");
         }
       }
+      if (selectedFunction.myFunction == chalk.cyanBright("Bill payment")) {
+        const options = await inquirer.prompt([
+          {
+            name: "myOption",
+            type: "list",
+            message: "Select your bank through you want to pay your bill.",
+            choices: [
+              chalk.blueBright("United Bank Limited"),
+              chalk.green("Habib Bank Limited"),
+              chalk.magentaBright("Meezan Bank"),
+              chalk.red("Bank-Alfala"),
+              chalk.greenBright("Bank-Al-Habib"),
+              chalk.grey("Sindh Bank"),
+            ],
+          },
+        ]);
+        if (options.myOption == chalk.grey("Sindh Bank")) {
+          console.log("");
+          console.log(
+            chalk.yellowBright(
+              "Sorry but the service of this bank is not avalaible right now !"
+            )
+          );
+          console.log("");
+          console.log("");
+        } else if (
+          options.myOption == chalk.blueBright("United Bank Limited") ||
+          chalk.green("Habib Bank Limited") ||
+          chalk.magentaBright("Meezan Bank") ||
+          chalk.red("Bank-Alfala") ||
+          chalk.greenBright("Bank-Al-Habib")
+        ) {
+          const bills = await inquirer.prompt([
+            {
+              name: "billtype",
+              message: "Select which bill you want to pay ?",
+              type: "list",
+              choices: [
+                chalk.blueBright("Electricity Bill"),
+                chalk.cyanBright("Gas Bill"),
+              ],
+            },
+          ]);
+          // Electric Bill
+          if (bills.billtype == chalk.blueBright("Electricity Bill")) {
+            const bill01 = await inquirer.prompt([
+              {
+                name: "choices",
+                type: "list",
+                message: "What do you want to do ?",
+                choices: [
+                  chalk.greenBright("View Bill"),
+                  chalk.blueBright("Pay Bill"),
+                ],
+              },
+            ]);
 
-      if (
-        selectedFunction.myFunction ==
-        chalk.cyanBright("Bill payment (coming soon)")
-      ) {
-        console.log(
-          chalk.bold(
-            chalk.yellow("Sorry this is option is not avalaible right now")
-          )
-        );
+            const bill1 = randomnumber(10000);
+            // Pay bill
+            if (
+              bill01.choices == chalk.blueBright("Pay Bill") &&
+              isPaid1 == false
+            ) {
+              if (myBalance > bill1) {
+                isPaid1 = true;
+                myBalance = myBalance - bill1;
+
+                console.log(
+                  chalk.greenBright(
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "BILL SUCCESSFULLY PAID FOR ELECTRIC"
+                  )
+                );
+                console.log(
+                  chalk.greenBright(
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    `Bill amount: ${bill1}`
+                  )
+                );
+                console.log(
+                  chalk.greenBright(
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    `Your Remaining balance is ${myBalance}`
+                  )
+                );
+              } else {
+                console.log("");
+                console.log(
+                  chalk.redBright(
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Bill payment failed due to insufficient balance!"
+                  )
+                );
+                console.log("");
+                console.log(`Your balance: ${myBalance}`);
+              }
+            } else if (
+              bill01.choices == chalk.blueBright("Pay Bill") &&
+              isPaid1 == true
+            ) {
+              console.log("");
+              console.log(
+                chalk.greenBright("You have already paid for this bill")
+              );
+              console.log("");
+            } else if (bill01.choices == chalk.greenBright("View Bill")) {
+              if (isPaid1 == true) {
+                console.log(
+                  chalk.yellow(
+                    "|-------------------------------------------------------------------------------|"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                         WELCOME TO XYZ ELECTRICITY                            |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    `|                                                                               |`
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Consumer Name: Muzammil                                                     |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Consumer Number: 57382-42985-4395-91-4                                      |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    `| > Amount to be paid: ${bill1}                                                  `
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    `| > Your Bill is PAID                                                           |`
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Reading Taken on: 31/12/2024                                                |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|  DUE DATE: 11 / 1 / 2024                                                      |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Please ensure that you have paid the bill before due date to avoid issues   |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|-------------------------------------------------------------------------------|"
+                  )
+                );
+              } else {
+                console.log(
+                  chalk.yellow(
+                    "|-------------------------------------------------------------------------------|"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                         WELCOME TO XYZ ELECTRICITY                            |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    `|                                                                               |`
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Consumer Name: Muzammil                                                     |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Consumer Number: 57382-42985-4395-91-4                                      |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    `| > Amount to be paid: ${bill1}                                                  `
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    `| > Your Bill is not PAID                                                       |`
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Reading Taken on: 31/12/2024                                                |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|  DUE DATE: 11 / 1 / 2024                                                      |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Please ensure that you have paid the bill before due date to avoid issues   |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|-------------------------------------------------------------------------------|"
+                  )
+                );
+              }
+            }
+          }
+          // Gas Bill
+          else if (bills.billtype == chalk.cyanBright("Gas Bill")) {
+            const bill2 = await inquirer.prompt([
+              {
+                name: "choices",
+                type: "list",
+                message: "What do you want to do?",
+                choices: [
+                  chalk.greenBright("Pay Bill"),
+                  chalk.blueBright("View Bill"),
+                ],
+              },
+            ]);
+
+            //Pay Bill
+            const billcost1: number = randomnumber(10000);
+
+            if (bill2.choices == chalk.greenBright("Pay Bill")) {
+              if (myBalance > billcost1) {
+                myBalance = myBalance - billcost1;
+                console.log("");
+                console.log(
+                  chalk.greenBright(
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "BILL SUCCESSFULLY PAID FOR GAS"
+                  )
+                );
+                console.log(
+                  chalk.greenBright(
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    `Bill amount: ${billcost1}`
+                  )
+                );
+                console.log(
+                  chalk.greenBright(
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    `Your Remaining balance is ${myBalance}`
+                  )
+                );
+                isPaid2 = true;
+              } else {
+                console.log("");
+                console.log(
+                  chalk.redBright(
+                    "               BILL PAYMENT FAILED DUE TO INSUFFICIENT BALANCE!"
+                  )
+                );
+              }
+            } else if (
+              bill2.choices == chalk.greenBright("Pay Bill") &&
+              isPaid2 == true
+            ) {
+              console.log("");
+              console.log(
+                chalk.greenBright("You have already paid for this bill !")
+              );
+              console.log("");
+            }
+            //View Bill
+            else if (bill2.choices == chalk.blueBright("View Bill")) {
+              if (isPaid2 == true) {
+                console.log(
+                  chalk.yellow(
+                    "|-------------------------------------------------------------------------------|"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                         WELCOME TO QUALITY GAS PROVIDERS                      |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    `|                                                                               |`
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Consumer Name: Muzammil                                                     |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Consumer Number: 57382-42985-4395-91-4                                      |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    `| > Your Bill is PAID                                                           |`
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Reading Taken on: 21/3/2002                                                 |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    `| > Amount to be paid within due date: ${billcost1}                                       `
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|  DUE DATE: 4 / 4 / 2002                                                       |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Please ensure that you have paid the bill before due date to avoid issues   |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|-------------------------------------------------------------------------------|"
+                  )
+                );
+              } else if (isPaid2 == false) {
+                console.log(
+                  chalk.yellow(
+                    "|-------------------------------------------------------------------------------|"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                         WELCOME TO QUALITY GAS PROVIDERS                      |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    `|                                                                               |`
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Consumer Name: Muzammil                                                     |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Consumer Number: 51984-75432-86187-9421-1454                                |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    `| > Your Bill is not PAID                                                       |`
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Reading Taken on: 21/3/2002                                                 |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    `| > Amount to be paid within due date: ${billcost1}                                        `
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|  DUE DATE: 4 / 4 / 2002                                                       |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "| > Please ensure that you have paid the bill before due date to avoid issues   |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|                                                                               |"
+                  )
+                );
+                console.log(
+                  chalk.yellow(
+                    "|-------------------------------------------------------------------------------|"
+                  )
+                );
+              }
+            }
+          }
+        }
       }
     }
   } else {
     count = count + 1;
 
     console.log(
-      chalk.bgRed("Invalid username or security pin. Please try again")
+      chalk.redBright("Invalid username or security pin. Please try again")
     );
+
+    if (count == 3) {
+      console.log("");
+      chalkAnimation.pulse(warn);
+      setTimeout(() => {
+        console.log(
+          chalk.cyanBright(
+            "Please visit our branch to get your card unblocked."
+          )
+        );
+      }, 4000);
+
+      flag2 = false;
+    }
   }
 
-  if (count == 3) {
-    console.log("");
-    chalkAnimation.pulse(warn);
-    setTimeout(() => {
-      console.log(
-        chalk.cyanBright("Please visit our branch to get your card unblocked.")
-      );
-    }, 4000);
-
-    flag2 = false;
-  }
+  //Interface
+  // Fast cash
+  //Withdraw
+  // Check balance
+  //Deposit
+  // Transfer
+  // NEW!! Bill payment
+  //
 }
-
-//Interface
-// Fast cash
-//Withdraw
-// Check balance
-//Deposit
-// Transfer
-// NEW!! Bill payment
