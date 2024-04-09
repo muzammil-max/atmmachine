@@ -387,7 +387,10 @@ while (flag2) {
           console.log("");
         }
       }
-      if (selectedFunction.myFunction == chalk.cyanBright("Bill payment")) {
+      if (
+        selectedFunction.myFunction ==
+        chalk.cyanBright("Bill payment")
+      ) {
         const options = await inquirer.prompt([
           {
             name: "myOption",
@@ -430,7 +433,7 @@ while (flag2) {
               ],
             },
           ]);
-          // Electric Bill
+            // Electric Bill
           if (bills.billtype == chalk.blueBright("Electricity Bill")) {
             const bill01 = await inquirer.prompt([
               {
@@ -446,469 +449,158 @@ while (flag2) {
 
             const bill1 = randomnumber(10000);
             // Pay bill
-            if (
-              bill01.choices == chalk.blueBright("Pay Bill") &&
-              isPaid1 == false
-            ) {
+            if (bill01.choices == chalk.blueBright("Pay Bill") && isPaid1 == false) {
               if (myBalance > bill1) {
                 isPaid1 = true;
                 myBalance = myBalance - bill1;
-
-                console.log(
-                  chalk.greenBright(
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "BILL SUCCESSFULLY PAID FOR ELECTRIC"
-                  )
-                );
-                console.log(
-                  chalk.greenBright(
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    `Bill amount: ${bill1}`
-                  )
-                );
-                console.log(
-                  chalk.greenBright(
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    `Your Remaining balance is ${myBalance}`
-                  )
-                );
+          
+                console.log(chalk.greenBright("", "", "", "", "", "", "BILL SUCCESSFULLY PAID FOR ELECTRIC"));
+                console.log(chalk.greenBright("", "", "", "", "", "", `Bill amount: ${bill1}`))
+                console.log(chalk.greenBright("", "", "", "", "", "", `Your Remaining balance is ${myBalance}`));
               } else {
                 console.log("");
                 console.log(
-                  chalk.redBright(
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "Bill payment failed due to insufficient balance!"
-                  )
-                );
+                chalk.redBright(
+                  "","","","","","","","Bill payment failed due to insufficient balance!"
+                )
+              )
                 console.log("");
                 console.log(`Your balance: ${myBalance}`);
               }
-            } else if (
-              bill01.choices == chalk.blueBright("Pay Bill") &&
-              isPaid1 == true
-            ) {
-              console.log("");
-              console.log(
-                chalk.greenBright("You have already paid for this bill")
-              );
-              console.log("");
-            } else if (bill01.choices == chalk.greenBright("View Bill")) {
-              if (isPaid1 == true) {
-                console.log(
-                  chalk.yellow(
-                    "|-------------------------------------------------------------------------------|"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                         WELCOME TO XYZ ELECTRICITY                            |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    `|                                                                               |`
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Consumer Name: Muzammil                                                     |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Consumer Number: 57382-42985-4395-91-4                                      |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    `| > Amount to be paid: ${bill1}                                                  `
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    `| > Your Bill is PAID                                                           |`
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Reading Taken on: 31/12/2024                                                |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|  DUE DATE: 11 / 1 / 2024                                                      |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Please ensure that you have paid the bill before due date to avoid issues   |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|-------------------------------------------------------------------------------|"
-                  )
-                );
-              } else {
-                console.log(
-                  chalk.yellow(
-                    "|-------------------------------------------------------------------------------|"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                         WELCOME TO XYZ ELECTRICITY                            |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    `|                                                                               |`
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Consumer Name: Muzammil                                                     |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Consumer Number: 57382-42985-4395-91-4                                      |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    `| > Amount to be paid: ${bill1}                                                  `
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    `| > Your Bill is not PAID                                                       |`
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Reading Taken on: 31/12/2024                                                |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|  DUE DATE: 11 / 1 / 2024                                                      |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Please ensure that you have paid the bill before due date to avoid issues   |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|-------------------------------------------------------------------------------|"
-                  )
-                );
-              }
             }
+            else if (bill01.choices == chalk.blueBright("Pay Bill") && isPaid1 == true) {
+              console.log("")
+              console.log(chalk.greenBright("You have already paid for this bill"))
+              console.log("")
+            }
+            else if (bill01.choices == chalk.greenBright("View Bill")) {
+              if (isPaid1 == true) {
+                console.log(chalk.yellow("|-------------------------------------------------------------------------------|"));
+                console.log(chalk.yellow("|                         WELCOME TO XYZ ELECTRICITY                            |"))
+                console.log(chalk.yellow(`|                                                                               |`))
+                console.log(chalk.yellow("| > Consumer Name: Muzammil                                                     |"))
+                console.log(chalk.yellow("| > Consumer Number: 57382-42985-4395-91-4                                      |"))
+                console.log(chalk.yellow(`| > Amount to be paid: ${bill1}                                                  `))
+                console.log(chalk.yellow(`| > Your Bill is PAID                                                           |`))
+                console.log(chalk.yellow("| > Reading Taken on: 31/12/2024                                                |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("|  DUE DATE: 11 / 1 / 2024                                                      |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("| > Please ensure that you have paid the bill before due date to avoid issues   |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("|-------------------------------------------------------------------------------|"))
+              }
+
+              else {
+                console.log(chalk.yellow("|-------------------------------------------------------------------------------|"));
+                console.log(chalk.yellow("|                         WELCOME TO XYZ ELECTRICITY                            |"))
+                console.log(chalk.yellow(`|                                                                               |`))
+                console.log(chalk.yellow("| > Consumer Name: Muzammil                                                     |"))
+                console.log(chalk.yellow("| > Consumer Number: 57382-42985-4395-91-4                                      |"))
+                console.log(chalk.yellow(`| > Amount to be paid: ${bill1}                                                  `))
+                console.log(chalk.yellow(`| > Your Bill is not PAID                                                       |`))
+                console.log(chalk.yellow("| > Reading Taken on: 31/12/2024                                                |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("|  DUE DATE: 11 / 1 / 2024                                                      |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("| > Please ensure that you have paid the bill before due date to avoid issues   |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("|-------------------------------------------------------------------------------|"))
+              }
+            
+            } 
           }
           // Gas Bill
           else if (bills.billtype == chalk.cyanBright("Gas Bill")) {
+
             const bill2 = await inquirer.prompt([
               {
                 name: "choices",
                 type: "list",
                 message: "What do you want to do?",
-                choices: [
-                  chalk.greenBright("Pay Bill"),
-                  chalk.blueBright("View Bill"),
-                ],
-              },
+                choices: [chalk.greenBright("Pay Bill"), chalk.blueBright("View Bill")],
+                
+                
+              }
             ]);
-
+            
             //Pay Bill
-            const billcost1: number = randomnumber(10000);
-
+              const billcost1:number = randomnumber(10000);
+            
             if (bill2.choices == chalk.greenBright("Pay Bill")) {
+              
               if (myBalance > billcost1) {
                 myBalance = myBalance - billcost1;
                 console.log("");
-                console.log(
-                  chalk.greenBright(
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "BILL SUCCESSFULLY PAID FOR GAS"
-                  )
-                );
-                console.log(
-                  chalk.greenBright(
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    `Bill amount: ${billcost1}`
-                  )
-                );
-                console.log(
-                  chalk.greenBright(
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    `Your Remaining balance is ${myBalance}`
-                  )
-                );
+                console.log(chalk.greenBright("", "", "", "", "", "", "BILL SUCCESSFULLY PAID FOR GAS"));
+                console.log(chalk.greenBright("", "", "", "", "", "", `Bill amount: ${billcost1}`))
+                console.log(chalk.greenBright("", "", "", "", "", "", `Your Remaining balance is ${myBalance}`));
                 isPaid2 = true;
-              } else {
-                console.log("");
-                console.log(
-                  chalk.redBright(
-                    "               BILL PAYMENT FAILED DUE TO INSUFFICIENT BALANCE!"
-                  )
-                );
               }
-            } else if (
-              bill2.choices == chalk.greenBright("Pay Bill") &&
-              isPaid2 == true
-            ) {
+
+              else {
+                console.log("");
+                console.log(chalk.redBright("               BILL PAYMENT FAILED DUE TO INSUFFICIENT BALANCE!"))
+              }
+            }
+
+            else if (bill2.choices == chalk.greenBright("Pay Bill") && isPaid2 == true) {
               console.log("");
-              console.log(
-                chalk.greenBright("You have already paid for this bill !")
-              );
+              console.log(chalk.greenBright("You have already paid for this bill !"))
               console.log("");
             }
-            //View Bill
+              //View Bill
             else if (bill2.choices == chalk.blueBright("View Bill")) {
               if (isPaid2 == true) {
-                console.log(
-                  chalk.yellow(
-                    "|-------------------------------------------------------------------------------|"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                         WELCOME TO QUALITY GAS PROVIDERS                      |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    `|                                                                               |`
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Consumer Name: Muzammil                                                     |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Consumer Number: 57382-42985-4395-91-4                                      |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    `| > Your Bill is PAID                                                           |`
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Reading Taken on: 21/3/2002                                                 |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    `| > Amount to be paid within due date: ${billcost1}                                       `
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|  DUE DATE: 4 / 4 / 2002                                                       |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Please ensure that you have paid the bill before due date to avoid issues   |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|-------------------------------------------------------------------------------|"
-                  )
-                );
-              } else if (isPaid2 == false) {
-                console.log(
-                  chalk.yellow(
-                    "|-------------------------------------------------------------------------------|"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                         WELCOME TO QUALITY GAS PROVIDERS                      |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    `|                                                                               |`
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Consumer Name: Muzammil                                                     |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Consumer Number: 51984-75432-86187-9421-1454                                |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    `| > Your Bill is not PAID                                                       |`
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Reading Taken on: 21/3/2002                                                 |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    `| > Amount to be paid within due date: ${billcost1}                                        `
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|  DUE DATE: 4 / 4 / 2002                                                       |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "| > Please ensure that you have paid the bill before due date to avoid issues   |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|                                                                               |"
-                  )
-                );
-                console.log(
-                  chalk.yellow(
-                    "|-------------------------------------------------------------------------------|"
-                  )
-                );
+                
+
+                console.log(chalk.yellow("|-------------------------------------------------------------------------------|"));
+                console.log(chalk.yellow("|                         WELCOME TO QUALITY GAS PROVIDERS                      |"))
+                console.log(chalk.yellow(`|                                                                               |`))
+                console.log(chalk.yellow("| > Consumer Name: Muzammil                                                     |"))
+                console.log(chalk.yellow("| > Consumer Number: 57382-42985-4395-91-4                                      |"))
+                console.log(chalk.yellow(`| > Your Bill is PAID                                                           |`))
+                console.log(chalk.yellow("| > Reading Taken on: 21/3/2002                                                 |"))
+                console.log(chalk.yellow(`| > Amount to be paid within due date: ${billcost1}                               `))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("|  DUE DATE: 4 / 4 / 2002                                                       |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("| > Please ensure that you have paid the bill before due date to avoid issues   |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("|-------------------------------------------------------------------------------|"))
+              }
+
+              else if (isPaid2 == false) {
+                console.log(chalk.yellow("|-------------------------------------------------------------------------------|"));
+                console.log(chalk.yellow("|                         WELCOME TO QUALITY GAS PROVIDERS                      |"))
+                console.log(chalk.yellow(`|                                                                               |`))
+                console.log(chalk.yellow("| > Consumer Name: Muzammil                                                     |"))
+                console.log(chalk.yellow("| > Consumer Number: 51984-75432-86187-9421-1454                                |"))
+                console.log(chalk.yellow(`| > Your Bill is not PAID                                                       |`))
+                console.log(chalk.yellow("| > Reading Taken on: 21/3/2002                                                 |"))
+                console.log(chalk.yellow(`| > Amount to be paid within due date: ${billcost1}                              `))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("|  DUE DATE: 4 / 4 / 2002                                                       |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("| > Please ensure that you have paid the bill before due date to avoid issues   |"))
+                console.log(chalk.yellow("|                                                                               |"))
+                console.log(chalk.yellow("|-------------------------------------------------------------------------------|"))
               }
             }
+
+            
+          
           }
+
+          
+
+          
         }
       }
     }
