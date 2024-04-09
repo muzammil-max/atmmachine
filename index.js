@@ -375,7 +375,7 @@ while (flag2) {
                         ]);
                         //Pay Bill
                         const billcost1 = randomnumber(10000);
-                        if (bill2.choices == chalk.greenBright("Pay Bill")) {
+                        if (bill2.choices == chalk.greenBright("Pay Bill") && isPaid2 == false) {
                             if (myBalance > billcost1) {
                                 myBalance = myBalance - billcost1;
                                 console.log("");
